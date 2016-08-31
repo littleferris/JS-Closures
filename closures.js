@@ -56,12 +56,15 @@ console.log(makeCall("801-404-1608"));
 */
 
 var makeCounter = function() {
-  function(){
-    
+  var num = 0;
+   function incNum(){
+     num++
+     return num;
+   }
+   return incNum;
+}
 
-  }
-
-}//Code Here
+//Code Here
 
 //Uncomment this once you make your function
   var count = makeCounter();
@@ -82,11 +85,18 @@ var makeCounter = function() {
 // You will need to use the module pattern to achieve this.
 
 function counterFactory(value) {
+  function inc(){
+    value++
+    return value;
+  }// Code here.
 
-  // Code here.
-
-
+  function dec(){
+    value--
+    return value;
+  }
   return {
+    inc:inc,
+    dec:dec
   }
 }
 
@@ -104,13 +114,11 @@ counter = counterFactory(10);
   function motivation(firstname, lastname){
 
     var welcomeText = 'You\'re doing awesome, keep it up ';
+  }// code message function here.
 
-    // code message function here.
-
-
+      function message(){
     //Uncommment this to return the value of your invoked message function
-
-    //return message()
+    return message()
   }
 
   motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
@@ -136,13 +144,12 @@ counter = counterFactory(10);
     // Anything that is being returned is made public and can be invoked from outside our lexical scope
 
     return {
-      // Code here.
-    };
-
+      publicMethod:privateMethod,
+      } // Code here.
   })();
 
 //Uncomment this after you create your public method
-//   module.publicMethod();
+  module.publicMethod();
 
 
 
@@ -153,13 +160,15 @@ counter = counterFactory(10);
 
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(i);
-    }, i * 1000)
+    delayMessage(i, i * 1000)
+
   }
 
-  function newScope(i) {
-    console.log(i)
+  function delayMessage(message, delay) {
+  	setTimeout(function(){
+  	console.log(message)
+  	}, delay)
+
   }
 }
 timeOutCounter();
@@ -172,6 +181,13 @@ timeOutCounter();
 //////////////////PROBLEM 8////////////////////
 
 var funcArray = [];
+
+function makeReturn(num){
+  return function(){
+    
+  }
+
+}
 
 /*
   Make the following code work
