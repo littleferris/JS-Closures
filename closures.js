@@ -109,19 +109,24 @@ counter = counterFactory(10);
 //////////////////PROBLEM 5////////////////////
 
 
+
 // Inside the motivation function create another function called message that will return 'You're doing awesome, keep it up firstname lastname.'
 
-  function motivation(firstname, lastname){
+function motivation(firstname, lastname){
+   var welcomeText = 'You\'re doing awesome, keep it up ';
 
-    var welcomeText = 'You\'re doing awesome, keep it up ';
-  }// code message function here.
+   message = function (){
+     return	welcomeText + firstname + " " + lastname + "."
+   }
+   // code message function here.
 
-      function message(){
-    //Uncommment this to return the value of your invoked message function
-    return message()
-  }
 
-  motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
+   //Uncommment this to return the value of your invoked message function
+
+   return message()
+ }
+
+ motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
 
 
 
@@ -184,7 +189,7 @@ var funcArray = [];
 
 function makeReturn(num){
   return function(){
-    
+
   }
 
 }
